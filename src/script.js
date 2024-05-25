@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded",function()){
         const convertedValue = currentValue
         .replace('×','*')
         .replace('÷','/')
-        .replace('%','*0.01');
+        .replace('%','*0.01')
+        .replace('sin','Math.sin')
+        .replace('cos','Math.cos')
+        .replace('ln','Math.log')
+        .replace('π','Math.PI');
         const result = eval(currentValue);
         currentValue = result.toString();
         display.value = currentValue;
