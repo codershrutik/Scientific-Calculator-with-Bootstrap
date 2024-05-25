@@ -25,16 +25,22 @@ document.addEventListener("DOMContentLoaded",function()){
         button.addEventListener('click',function(){
             const value = button.innerText;
 
-            if(value == "AC"){
-                currentValue = "";
+            try{
+                if(value == "AC"){
+                    currentValue = "";
+                    display.value = currentValue;
+                } else if(value == '='){
+                    evaluateResult();
+                } else{
+                    currentValue += value;
+                    console.log('currentValue: ',currentValue);
+                    display.value = currentValue;
+                } 
+            } catch(error){
+                console.error(error);
+                currentValue = "ERROR";
                 display.value = currentValue;
-            } else if(value == '='){
-                evaluateResult();
-            } else{
-                currentValue += value;
-                console.log('currentValue: ',currentValue);
-                display.value = currentValue;
-            } 
+            }
         })
     }
     
